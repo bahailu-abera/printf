@@ -44,8 +44,8 @@ int _printf(const char *format, ...)
 
 	va_start(args, format);
 
-	buffer = malloc(sizeof(char));
-
+	if (!format || (format[0] == '%' && !format[1]))
+		return (-1);
 	for (i = 0; format && format[i] != '\0'; i++)
 	{
 		if (format[i] == '%')
@@ -56,6 +56,7 @@ int _printf(const char *format, ...)
 				if ((format[i + 1] == '\0') ||
 					(format[i + 2] == '\0' && format[i + 1] != '%'))
 				{
+					va_end(args);
 					return (-1);
 				}
 				len += print_letter(format, i);
@@ -63,13 +64,21 @@ int _printf(const char *format, ...)
 			}
 			else
 			{
+				buffer = malloc(sizeof(char));
+				if (!buffer)
+				{
+					va_end(args);
+					return (-1);
+				}
 				len += f(args, buffer);
+				free(buffer);
 				i++;
 			}
 		}
 		else
 			len += print_letter(format, i);
 	}
+	va_end(args);
 
 	return (len);
 }

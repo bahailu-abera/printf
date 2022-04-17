@@ -11,7 +11,6 @@
 
 int print_char(va_list args, char *buffer)
 {
-	buffer = malloc(sizeof(char));
 	buffer[0] = va_arg(args, int);
 
 	return (_print_buf(buffer, 1));
