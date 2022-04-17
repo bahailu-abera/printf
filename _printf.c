@@ -33,7 +33,8 @@ int print_letter(const char *format, int index)
 
 int _printf(const char *format, ...)
 {
-	unsigned int i,	int len = 0, char *buffer, int (*f)(va_list, char *);
+	int i, len = 0, (*f)(va_list, char *);
+	char *buffer;
 	va_list args;
 
 	va_start(args, format);
@@ -63,9 +64,7 @@ int _printf(const char *format, ...)
 					va_end(args);
 					return (-1);
 				}
-				len += f(args, buffer);
-				free(buffer);
-				i++;
+				len += f(args, buffer), free(buffer), i++;
 			}
 		}
 		else
