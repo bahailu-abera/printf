@@ -1,5 +1,31 @@
 #include "main.h"
 
+
+/**
+ * print_letter - prints single letter
+ *
+ * @format: the string format
+ * @index: index of the letter
+ * in the format
+ *
+ * Return: 1(length of the letter)
+ */
+
+int print_letter(const char *format, int index)
+{
+	char *str;
+	int l;
+
+	str = malloc(sizeof(char));
+
+	str[0] = format[index];
+
+	l = _print_buf(str, 1);
+	free(str);
+
+	return (l);
+}
+
 /**
  * _printf - formated output and data conversation
  *
@@ -17,6 +43,7 @@ int _printf(const char *format, ...)
 	va_list args;
 
 	va_start(args, format);
+        buffer = malloc(sizeof(char));
 
 	for (i = 0; format && format[i] != '\0'; i++)
 	{
@@ -24,17 +51,23 @@ int _printf(const char *format, ...)
 		{
 			f = get_pnt_funct(format, i + 1);
 			if (!f)
-				return (-1);
-			len += f(args, buffer);
-			i++;
+			{
+				if ((format[i + 1] == '\0') ||
+					(format[i + 2] == '\0' && format[i + 1] != '%'))
+				{
+					return (-1);
+				}
+				len += print_letter(format, i);
+				i++;
+			}
+			else
+			{
+				len += f(args, buffer);
+				i++;
+			}
 		}
 		else
-		{
-			buffer = malloc(sizeof(char));
-			buffer[0] = format[i];
-			len += _print_buf(buffer, 1);
-			free(buffer);
-		}
+			len += print_letter(format, i);
 	}
 
 	return (len);
