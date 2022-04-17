@@ -12,13 +12,13 @@
 
 int print_str(va_list args, char *buffer)
 {
-	unsigned int i;
+	unsigned int i = 0;
 
 	buffer = va_arg(args, char *);
 
 	if (buffer)
 	{
-		for (i = 0; buffer[i] != '\0'; i++)
+		for (; buffer[i] != '\0'; i++)
 			;
 	}
 	
