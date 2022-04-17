@@ -3,11 +3,8 @@
 
 /**
  * print_letter - prints single letter
- *
  * @format: the string format
- * @index: index of the letter
- * in the format
- *
+ * @index: index of the letterin the format
  * Return: 1(length of the letter)
  */
 
@@ -36,14 +33,10 @@ int print_letter(const char *format, int index)
 
 int _printf(const char *format, ...)
 {
-	unsigned int i;
-	int len = 0;
-	char *buffer;
-	int (*f)(va_list, char *);
+	unsigned int i,	int len = 0, char *buffer, int (*f)(va_list, char *);
 	va_list args;
 
 	va_start(args, format);
-
 	if (!format || (format[0] == '%' && !format[1]))
 		return (-1);
 	for (i = 0; format && format[i] != '\0'; i++)
@@ -54,7 +47,7 @@ int _printf(const char *format, ...)
 			if (!f)
 			{
 				if ((format[i + 1] == '\0') ||
-					(format[i + 2] == '\0' && format[i + 1] != '%'))
+						(format[i + 2] == '\0' && format[i + 1] != '%'))
 				{
 					va_end(args);
 					return (-1);
@@ -79,6 +72,5 @@ int _printf(const char *format, ...)
 			len += print_letter(format, i);
 	}
 	va_end(args);
-
 	return (len);
 }
