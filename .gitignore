@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# ignore buffers created by vi
+*~
+~#
+
+#ignore main file
+*main.c
+
