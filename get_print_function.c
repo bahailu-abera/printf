@@ -1,15 +1,16 @@
 #include "main.h"
 
 /**
- * get_print_funtion - returns the printer function
+ * get_pnt_funct - returns the printer function
  *
- * @args: arguments
- * @buffer: pointer to character
+ * @s: formated string
+ * @pos: index of conversion
+ * specifier
  *
  * Return: function pointer
  */
 
-int (*get_print_function(const char *s, unsigned int index))(va_list args, char *buffer)
+int (*get_pnt_funct(const char *s, unsigned int pos))(va_list args, char *buf)
 {
 	print_t pnt[] = { {"c", print_char}, {"s", print_str}, {NULL, NULL}};
 
@@ -17,7 +18,7 @@ int (*get_print_function(const char *s, unsigned int index))(va_list args, char 
 
 	for (i = 0; pnt[i].conv_spec != NULL; i++)
 	{
-		if (s[index] == pnt[i].conv_spec[0])
+		if (s[pos] == pnt[i].conv_spec[0])
 			return (pnt[i].f);
 	}
 

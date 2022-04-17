@@ -7,7 +7,7 @@
 /**
  * struct print - struct for print function
  *
- * @conv_spec - conversion specifier.
+ * @conv_spec: conversion specifier.
  * @f: pointer to the printer function
  *
  * Return: none
@@ -18,7 +18,7 @@ typedef struct print
 	int (*f)(va_list, char *);
 } print_t;
 
-int (*get_print_function(const char *s, unsigned int index))(va_list, char *);
+int (*get_pnt_funct(const char *s, unsigned int pos))(va_list, char *);
 int print_char(va_list args, char *buffer);
 int print_str(va_list args, char *buffer);
 int _printf(const char *format, ...);

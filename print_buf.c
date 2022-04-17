@@ -11,5 +11,5 @@
 
 int _print_buf(char *buf, int n)
 {
-	return write(1, buf, n);
+	return (write(1, buf, n));
 }

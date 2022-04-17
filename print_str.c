@@ -5,7 +5,7 @@
  * to the console
  *
  * @args: arguments
- * buffer: pointer to character
+ * @buffer: pointer to character
  *
  * Return: number of character printed
  */
