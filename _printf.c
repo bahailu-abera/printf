@@ -43,7 +43,8 @@ int _printf(const char *format, ...)
 	va_list args;
 
 	va_start(args, format);
-        buffer = malloc(sizeof(char));
+
+	buffer = malloc(sizeof(char));
 
 	for (i = 0; format && format[i] != '\0'; i++)
 	{
