@@ -21,6 +21,6 @@ int print_str(va_list args, char *buffer)
 		for (; buffer[i] != '\0'; i++)
 			;
 	}
-	
+
 	return (_print_buf(buffer, i));
 }
