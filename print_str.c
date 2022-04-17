@@ -16,7 +16,11 @@ int print_str(va_list args, char *buffer)
 
 	buffer = va_arg(args, char *);
 
-	for (i = 0; buffer[i] != '\0'; i++)
-		;
+	if (buffer)
+	{
+		for (i = 0; buffer[i] != '\0'; i++)
+			;
+	}
+	
 	return (_print_buf(buffer, i));
 }
