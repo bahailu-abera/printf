@@ -12,7 +12,8 @@
 
 int print_int(va_list args, char *buffer)
 {
-	int num, pos_num, b, digit_num = 1, i = 0;
+	int num;
+	unsigned int pos_num, b, digit_num = 1, i = 0;
 	char lett;
 
 	free(buffer);

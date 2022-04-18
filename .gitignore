@@ -5,5 +5,4 @@
 ~#
 
 #ignore main file
-*main.c
 **.out

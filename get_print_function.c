@@ -14,7 +14,7 @@ int (*get_pnt_funct(const char *s, unsigned int pos))(va_list args, char *buf)
 {
 	print_t pnt[] = { {"c", print_char}, {"s", print_str},
 		{"d", print_int}, {"i", print_int},
-		{NULL, NULL}};
+		{"b", print_bin}, {NULL, NULL}};
 
 	int i;
 

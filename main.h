@@ -25,5 +25,6 @@ int print_int(va_list args, char *buffer);
 int print_unint(va_list args, char *buffer);
 int _printf(const char *format, ...);
 int _print_buf(char *buf, int n);
+int print_bin(va_list args, char *buffer);
 
 #endif
