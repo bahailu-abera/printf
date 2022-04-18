@@ -33,7 +33,7 @@ int print_letter(const char *format, int index)
 
 int _printf(const char *format, ...)
 {
-	int i, len = 0, (*f)(va_list, char *);
+	int i, len = 0, (*f)(va_list, char *, flag = 0);
 	char *buffer;
 	va_list args;
 
@@ -47,7 +47,7 @@ int _printf(const char *format, ...)
 			f = get_pnt_funct(format, i + 1);
 			if (!f)
 			{
-				if ((format[i + 1] == '\0'))
+				if ((format[i + 1] == '\0') && flag == 0)
 				{
 					va_end(args);
 					return (-1);
@@ -55,7 +55,7 @@ int _printf(const char *format, ...)
 				else if (format[i + 1] == '%')
 					len += print_letter(format, i), i++;
 				else
-					len += print_letter(format, i);
+					len += print_letter(format, i), flag = 1;
 			}
 			else
 			{
