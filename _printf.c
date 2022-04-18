@@ -33,7 +33,7 @@ int print_letter(const char *format, int index)
 
 int _printf(const char *format, ...)
 {
-	int i, len = 0, (*f)(va_list, char *, flag = 0);
+	int i, len = 0, (*f)(va_list, char *), flag = 0;
 	char *buffer;
 	va_list args;
 
