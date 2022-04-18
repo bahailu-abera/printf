@@ -47,14 +47,15 @@ int _printf(const char *format, ...)
 			f = get_pnt_funct(format, i + 1);
 			if (!f)
 			{
-				if ((format[i + 1] == '\0') ||
-						(format[i + 2] == '\0' && format[i + 1] != '%'))
+				if ((format[i + 1] == '\0'))
 				{
 					va_end(args);
 					return (-1);
 				}
-				len += print_letter(format, i);
-				i++;
+				else if (format[i + 1] == '%')
+					len += print_letter(format, i), i++;
+				else
+					len += print_letter(format, i);
 			}
 			else
 			{
