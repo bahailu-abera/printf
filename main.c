@@ -4,13 +4,14 @@
 
 int main(void)
 {
-	int len;
+	int len, len1;
 
 	char *str = "bahailu";
 
-	len = _printf("The number A: %d B: %i C:%d D: %i \n", 'a', 'b', "bahailu", str);
+	len = _printf("The number A: %d B: %i C:%d D: %i binary: %b %b\n", 'a', 'b', "bahailu", str, -98,  1);
+	len1 =  printf("The number A: %d B: %i C:%d D: %i binary: %b %b\n", 'a', 'b', "bahailu", str, -98, 1);
 
 	printf("length: %d\n", len);
-
+	printf("plen: %d\n", len1);
 	return (0);
 }

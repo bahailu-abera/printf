@@ -20,7 +20,13 @@ int print_bin(va_list args, char *buffer)
 
 	num = va_arg(args, int);
 
-	if (num < 0)
+	if(num == 0)
+	{
+		buffer[0] = '0';
+		_print_buf(buffer, 1);
+		return (1);
+	}
+	else if (num < 0)
 		a = num * -1;
 	else
 		a = num;
@@ -38,6 +44,8 @@ int print_bin(va_list args, char *buffer)
 		buffer[j] = buffer[i - (j + 1)];
 		buffer[i - (j + 1)] = temp;
 	}
-	return (_print_buf(buffer, i));
+	_print_buf(buffer, i);
+
+	return (i);
 
 }
