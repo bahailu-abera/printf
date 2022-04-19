@@ -15,12 +15,9 @@ int print_bin(va_list args, char *buffer)
 	int num, temp;
 	unsigned int i = 0, j, a;
 
-	free(buffer);
-	buffer = malloc(sizeof(char) * 10);
-
 	num = va_arg(args, int);
 
-	if(num == 0)
+	if (num == 0)
 	{
 		buffer[0] = '0';
 		_print_buf(buffer, 1);
@@ -44,6 +41,7 @@ int print_bin(va_list args, char *buffer)
 		buffer[j] = buffer[i - (j + 1)];
 		buffer[i - (j + 1)] = temp;
 	}
+
 	_print_buf(buffer, i);
 
 	return (i);

@@ -8,7 +8,7 @@ int main(void)
 
 	char *str = "bahailu";
 
-	len = _printf("The number A: %d B: %i C:%d D: %i binary: %b %b\n", 'a', 'b', "bahailu", str, -98,  1);
+	len = _printf("The number A: %d B: %i C:%d D: %i binary: %b %b\n", 'a', 'b', "bahailu", str, -98,  16236526356262362);
 	len1 =  printf("The number A: %d B: %i C:%d D: %i binary: %b %b\n", 'a', 'b', "bahailu", str, -98, 1);
 
 	printf("length: %d\n", len);
