@@ -12,18 +12,23 @@
 
 int print_bin(va_list args, char *buffer)
 {
-	unsigned int num;
-	unsigned int i = 0, j, temp;
+	int num, temp;
+	unsigned int i = 0, j, a;
 
 	free(buffer);
 	buffer = malloc(sizeof(char) * 10);
 
 	num = va_arg(args, int);
 
-	while (num > 0)
+	if (num < 0)
+		a = num * -1;
+	else
+		a = num;
+
+	while (a > 0)
 	{
-		buffer[i] = (num % 2) + '0';
-		num /= 2;
+		buffer[i] = (a % 2) + '0';
+		a /= 2;
 		i++;
 	}
 
