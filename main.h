@@ -18,7 +18,7 @@ typedef struct print
 	int (*f)(va_list, char *);
 } print_t;
 
-int (*get_pnt_funct(const char *s, unsigned int pos))(va_list, char *);
+int (*get_pnt_funct(const char *s, int pos))(va_list, char *);
 int print_char(va_list args, char *buffer);
 int print_str(va_list args, char *buffer);
 int print_int(va_list args, char *buffer);
@@ -26,5 +26,6 @@ int print_unint(va_list args, char *buffer);
 int _printf(const char *format, ...);
 int _print_buf(char *buf, int n);
 int print_bin(va_list args, char *buffer);
+int print_addres(va_list, char *buffer);
 
 #endif
