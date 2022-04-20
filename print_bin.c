@@ -65,7 +65,7 @@ int print_bin(va_list args, char *buffer)
 
 	if (binary == NULL)
 		return (-1);
-	
+
 	if (num == 0)
 	{
 		buffer[0] = '0';
