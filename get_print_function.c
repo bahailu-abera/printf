@@ -16,7 +16,7 @@ int (*get_pnt_funct(const char *s, int pos))(va_list args, char *buf)
 		{"d", print_int}, {"i", print_int},
 		{"b", print_bin}, {"u", print_unint},
 		{"x", print_shex}, {"X", print_chex},
-		{"S", custom_str},
+		{"S", custom_str}, {"p", print_address},
 		{"o", print_octal}, {NULL, NULL}};
 
 	int i;
