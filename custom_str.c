@@ -4,7 +4,7 @@
 /**
  * custom_hex - prints hexadecimal value
  * of custom characters
- * @c: ascii value of custom character
+ * @ascii: ascii value of custom character
  *
  * Return: number of printed bytes
  */
