@@ -20,12 +20,11 @@ int print_str(va_list args, char *buffer)
 	if (!buffer)
 	{
 		null = "(null)";
-		return _print_buf(null, 6);
+		return (_print_buf(null, 6));
 	}
 
-
 	for (; buffer[i] != '\0'; i++)
-			;
+		;
 
 	return (_print_buf(buffer, i));
 }
