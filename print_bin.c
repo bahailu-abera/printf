@@ -1,4 +1,5 @@
 #include "main.h"
+#include <limits.h>
 
 
 /**
@@ -6,14 +7,15 @@
  * with the binary value of the number
  * @binary: array of memory
  * @size: size of binary memory in byte
+ * or positive
  * @quotient: the number in decimal value
  * and positive
  * Return: array of binary number
  */
 
-char *rever_binary(char *binary, int quotient, int size)
+char *rever_binary(char *binary, unsigned int quotient, int size)
 {
-	int i, j;
+	int i;
 
 	for (i = 0; i < size; i++)
 		binary[i] = '0';
@@ -27,16 +29,6 @@ char *rever_binary(char *binary, int quotient, int size)
 	}
 	if (quotient != 0)
 		binary[i] = '1';
-
-	for (i = 0; binary[i] = '0'; i++)
-		;
-
-	for (j = 0; binary[i] != '\0'; j++)
-	{
-		binary[j] = binary[i];
-		i++;
-	}
-	binary[j] = '\0';
 
 	return (binary);
 }
@@ -54,16 +46,12 @@ char *rever_binary(char *binary, int quotient, int size)
 
 int print_bin(va_list args, char *buffer)
 {
-	unsigned int num, quotient;
-	int size;
+	int num;
+	unsigned int quotient, a;
+	int size = 0;
 	char *binary;
 
-	num = va_arg(args, unsigned int);
-	size = (sizeof(int) * 8) + 1;
-	binary = malloc(size);
-
-	if (binary == NULL)
-		return (-1);
+	num = va_arg(args, int);
 
 	if (num == 0)
 	{
@@ -72,17 +60,25 @@ int print_bin(va_list args, char *buffer)
 		return (1);
 	}
 
-	else if (num < 0)
-	{
-		quotient = (num * -1) - 1;
-	}
 	else
 		quotient = num;
 
-	binary = rever_binary(binary, quotient, size - 1);
+	a = quotient;
+	while (a > 0)
+	{
+		a /= 2;
+		size++;
+	}
+
+	binary = malloc(sizeof(char) * (size + 1));
+
+	if (binary == NULL)
+		return (-1);
+	rever_binary(binary, quotient, size);
 
 	_print_buf(binary, size);
+	free(binary);
 
-	return (size - 1);
+	return (size);
 
 }

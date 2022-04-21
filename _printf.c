@@ -15,6 +15,8 @@ int print_letter(const char *format, int index)
 
 	str = malloc(sizeof(char));
 
+	if (str == NULL)
+		return (-1);
 	str[0] = format[index];
 
 	l = _print_buf(str, 1);
