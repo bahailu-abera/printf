@@ -27,5 +27,8 @@ int _printf(const char *format, ...);
 int _print_buf(char *buf, int n);
 int print_bin(va_list args, char *buffer);
 int print_address(va_list, char *buffer);
+int print_shex(va_list, char *buffer);
+int print_chex(va_list, char *buffer);
+int print_octal(va_list, char *buffer);
 
 #endif
