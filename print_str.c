@@ -13,14 +13,19 @@
 int print_str(va_list args, char *buffer)
 {
 	int i = 0;
+	char *null;
 
 	buffer = va_arg(args, char *);
 
-	if (buffer)
+	if (!buffer)
 	{
-		for (; buffer[i] != '\0'; i++)
-			;
+		null = "(null)";
+		return _print_buf(null, 6);
 	}
+
+
+	for (; buffer[i] != '\0'; i++)
+			;
 
 	return (_print_buf(buffer, i));
 }

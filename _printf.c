@@ -60,7 +60,7 @@ int _printf(const char *format, ...)
 			else
 			{
 				buffer = malloc(sizeof(char) * 1024);
-				if (!buffer)
+				if (buffer == NULL)
 				{
 					va_end(args);
 					return (-1);
