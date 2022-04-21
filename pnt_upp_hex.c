@@ -21,7 +21,11 @@ int pnt_upp_hex(va_list args, char *buffer)
 
 	pos_num = num;
 
-	buffer[i] = '0', i++, buffer[i] = 'x', i++;
+	buffer[i] = '0', i++;
+
+	if (num == 0)
+		return (_print_buf(buffer, i));
+	buffer[i] = 'x', i++;
 	b = pos_num;
 
 	while (b > 15)

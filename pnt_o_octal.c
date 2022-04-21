@@ -22,6 +22,8 @@ int pnt_o_octal(va_list args, char *buffer)
 
 	buffer[i] = '0', i++;
 
+	if (num == 0)
+		return (_print_buf(buffer, i));
 	b = pos_num;
 	while (b > 7)
 	{

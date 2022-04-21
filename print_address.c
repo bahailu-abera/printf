@@ -20,6 +20,11 @@ int print_address(va_list args, char *buffer)
 
 	addr = va_arg(args, unsigned long int);
 
+	if (addr == 0)
+	{
+		buffer[i] = '0', i++;
+		return (_print_buf(buffer, i));
+	}
 	if (!addr)
 	{
 		buffer = "(nil)";
