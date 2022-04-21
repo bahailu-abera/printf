@@ -30,5 +30,6 @@ int print_address(va_list, char *buffer);
 int print_shex(va_list, char *buffer);
 int print_chex(va_list, char *buffer);
 int print_octal(va_list, char *buffer);
+int custom_str(va_list, char *buffer);
 
 #endif
