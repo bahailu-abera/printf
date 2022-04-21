@@ -46,18 +46,18 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			f = get_pnt_funct(format, i + 1);
+			f = get_pnt_funct(format, &i);
 			if (!f)
 			{
-				if ((format[i + 1] == '\0') && flag == 0)
+				if ((format[i] == '\0') && flag == 0)
 				{
 					va_end(args);
 					return (-1);
 				}
-				else if (format[i + 1] == '%')
-					len += print_letter(format, i), i++;
+				else if (format[i] == '%')
+					len += print_letter(format, i);
 				else
-					len += print_letter(format, i), flag = 1;
+					len += print_letter(format, i - 1), flag = 1, i--;
 			}
 			else
 			{
@@ -67,7 +67,7 @@ int _printf(const char *format, ...)
 					va_end(args);
 					return (-1);
 				}
-				len += f(args, buffer), free(buffer), i++;
+				len += f(args, buffer), free(buffer);
 			}
 		}
 		else

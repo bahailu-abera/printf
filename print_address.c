@@ -26,7 +26,7 @@ int print_address(va_list args, char *buffer)
 		return (_print_buf(buffer, 5));
 	}
 	a = addr;
-	buffer[i] = '0', i++, buffer[i] = 'x'; i++;
+	buffer[i] = '0', i++, buffer[i] = 'x', i++;
 	while (a > 15)
 	{
 		b *= 16;
