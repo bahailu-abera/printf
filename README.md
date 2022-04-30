@@ -15,7 +15,25 @@ The format tags prototype is the following:
 %[flags][length]specifier
 If the program runs successfully, the return value is the amount of chars printed.
 
-
+# character specifier
 | Specifier    | Character                  |
 | ------------ | ---------------------------|
 | S            | String of characters       |
+| c            | signle character           |
+| d or i       | signed decimal integer     |
+| o            | signed octal (base 8)      |
+| u            | unsigned decimal integer   |
+| x            | unsigned hexadecimal integer|
+| X            | Unsigned hexadecimal integer (Capital letters|
+| p            | Pointer address|
+| %            | % character |
+
+
+# Flags and Descriptition 
+| Flags             | descriptition |
+|-----------------  | ---------------- |
+| -                 | Left-justify within the given field width; Right justification is the default |
+| +            |   Forces to precede the result with a plus or minus sign (+ or -) even for positive numbers. By default, only negative numbers are preceded with a -ve sign. |
+| (space)           | If no sign is going to be written, a blank space is inserted before the value. |
+| #            | Used with o, x or X specifiers the value is preceded with 0, 0x or 0X respectively for values different than zero. Used with e, E and f, it forces the written output to contain a decimal point even if no digits would follow. By default, if no digits follow, no decimal point is written. Used with g or G the result is the same as with e or E but trailing zeros are not removed. |
+
